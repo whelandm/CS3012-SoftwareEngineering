@@ -7,8 +7,15 @@ class Node:
         self.right = null
         self.value = val
 
-    def add():
-
-
 # Lowest Common Ancestor - find lowest common ancester of x and y
 def LCA(node, x, y):
+    if node == None:
+        return None
+    if node == x or node == y:
+        return node
+    left = LCA(node.left, x, y)
+    right = LCA(node.right, x, y)
+    if left == None:
+        return right
+    else:
+        return left
