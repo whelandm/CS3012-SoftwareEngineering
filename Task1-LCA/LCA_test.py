@@ -9,6 +9,9 @@ def test_print_tree(capsys):
     captured = capsys.readouterr()
     assert captured.out == "8\n2\n9\n7\n10\n1\n4\n3\n5\n6\n"
 
-# test lowest common ancestor 
+# test lowest common ancestor
 def test_LCA():
     assert LCA.LCA(LCA.testTree, 8, 9).value == 2
+    assert LCA.LCA(LCA.testTree, 10, 3).value == 1
+    assert LCA.LCA(LCA.testTree, 5, 6).value == 5
+    assert LCA.LCA(LCA.testTree, 1, 6).value == 1
