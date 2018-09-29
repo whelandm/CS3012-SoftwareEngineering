@@ -18,12 +18,15 @@ class Node:
 
 # Lowest Common Ancestor - find lowest common ancester of x and y
 def LCA(node, x, y):
-    if node == None:
+    if node is None:
         return None
-    if node == x or node == y:
+    if node.value == x or node.value == y:
         return node
     left = LCA(node.left, x, y)
     right = LCA(node.right, x, y)
+
+    if left != None and right != None:
+        return node
     if left == None:
         return right
     else:
