@@ -8,7 +8,7 @@ class Node:
         self.right = None
         self.value = val
 
-    #Print the Binary Tree
+    #Print the Binary Tree to console
     def print_tree(self):
         if self.left != None:
             self.left.print_tree()
@@ -16,23 +16,26 @@ class Node:
         if self.right != None:
             self.right.print_tree()
 
-# Lowest Common Ancestor - find lowest common ancester of x and y
+# Lowest Common Ancestor - find lowest common ancester of x and y using recursion
 def LCA(node, x, y):
     if node is None:
         return None
+
     if node.value == x or node.value == y:
         return node
+
     left = LCA(node.left, x, y)
     right = LCA(node.right, x, y)
 
     if left != None and right != None:
         return node
+
     if left == None:
         return right
     else:
         return left
 
-#Create Tree for Testing
+#Create Binary Tree for testing
 testTree = Node(1)
 testTree.left = Node(2)
 testTree.right = Node(3)
