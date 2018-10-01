@@ -16,24 +16,40 @@ class Node:
         if self.right != None:
             self.right.print_tree()
 
+# Check if input x exists in binary tree
+def node_exists(node, x):
+    if node is None:
+        return False
+    if node.value == x:
+        return True
+    left = node_exists(node.left, x)
+    right = node_exists(node.right, x)
+    if left == True or right == True:
+        return True
+    else:
+        return False
+
 # Lowest Common Ancestor - find lowest common ancester of x and y using recursion
 def LCA(node, x, y):
-    if node is None:
-        return None
+    if node_exists(node, x) and node_exists(node, y):
+        if node is None:
+            return None
 
-    if node.value == x or node.value == y:
-        return node
+        if node.value == x or node.value == y:
+            return node
 
-    left = LCA(node.left, x, y)
-    right = LCA(node.right, x, y)
+        left = LCA(node.left, x, y)
+        right = LCA(node.right, x, y)
 
-    if left != None and right != None:
-        return node
+        if left != None and right != None:
+            return node
 
-    if left == None:
-        return right
+        if left == None:
+            return right
+        else:
+            return left
     else:
-        return left
+        return -1
 
 #Create Binary Tree for testing
 testTree = Node(1)
