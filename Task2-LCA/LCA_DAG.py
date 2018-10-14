@@ -24,6 +24,13 @@ def BFS(g, root, x):
             else:
                 queue.append((next, path + [next]))
 
+#Shortest Path - find shortest path using BFS, else if no path return None
+def shortest_path(g, root, x):
+    try:
+        return next(BFS(g, root, x))
+    except StopIteration:
+        return None
+
 #Directed Acyclic Graph
 class DAG:
     #Init
