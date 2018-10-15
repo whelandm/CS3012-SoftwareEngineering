@@ -11,7 +11,6 @@ def test_BFS():
     assert list(result) == [[1, 3, 9]]
     result = LCA_DAG.BFS(LCA_DAG.testDAG, 1, 8)
     assert list(result) == [[1, 2, 8]]
-
     result = LCA_DAG.BFS(LCA_DAG.testDAG, 4, 8)
     assert list(result) == [[4, 8],[4,5,6,8]]
 
@@ -23,3 +22,9 @@ def test_shortest_path():
     assert result == None
     result = LCA_DAG.shortest_path(LCA_DAG.testDAG, 4, 8)
     assert list(result) == [4, 8]
+
+def test_greatest_depth():
+    result = LCA_DAG.greatest_depth(LCA_DAG.testDAG, 1, 9)
+    assert result == 3
+    result = LCA_DAG.greatest_depth(LCA_DAG.testDAG, 4, 8)
+    assert result == 4

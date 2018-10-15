@@ -31,15 +31,23 @@ def shortest_path(g, root, x):
     except StopIteration:
         return None
 
-#Directed Acyclic Graph
-class DAG:
-    #Init
-    def __init__(self, v):
-        self.vertices = v
-        self.graph = defaultdict(list)
+#Find Depth
+def greatest_depth(g, root, x):
+    paths = BFS(g, root, x)
+    depth = -1
+    for next in paths:
+        if len(next) > depth:
+            depth = len(next)
+    return depth
 
-    #Add edge to graph
-    def add_Edge(self,edge,vertices,weight):
-        self.graph[edge].append((vertices,weight))
-
-#Lowest Common Ancestor - find lowest common ancester of x and y
+#Lowest Common Ancestor - find lowest common ancester of x and y in graph g
+def LCA(g, root, x, y):
+    x_ancestors = BFS(g, r, x)
+    y_ancestors = BFS(g, r, y)
+    queue = []
+    for x in x_ancestors:
+        for next in y_ancestors:
+            if next == x:
+                    queue.append(x)
+    lca = greatest_depth()
+    return lca
