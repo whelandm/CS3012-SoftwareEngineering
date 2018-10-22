@@ -40,14 +40,20 @@ def greatest_depth(g, root, x):
             depth = len(next)
     return depth
 
+#find the common ancestors of two lists
+def find_common_ancestors(x, y):
+    ca = []
+    for i in x:
+        for j in y:
+            if j == i:
+                    ca.append(j)
+    if ca == []:
+        return None
+    return ca
+
 #Lowest Common Ancestor - find lowest common ancester of x and y in graph g
 def LCA(g, root, x, y):
-    x_ancestors = BFS(g, r, x)
-    y_ancestors = BFS(g, r, y)
-    queue = []
-    for x in x_ancestors:
-        for next in y_ancestors:
-            if next == x:
-                    queue.append(x)
-    lca = greatest_depth()
+    x_ancestors = BFS(g, root, x)
+    y_ancestors = BFS(g, root, y)
+    common_ancestors = find_common_ancestors(x_ancestors, y_ancestors)
     return lca
