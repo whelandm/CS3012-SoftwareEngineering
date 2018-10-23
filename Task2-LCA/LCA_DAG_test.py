@@ -31,9 +31,13 @@ def test_shortest_path():
 
 # check common ancestors works
 def test_common_ancestors():
-    result = LCA_DAG.find_common_ancestors([1, 2, 3], [0, 3, 6])
+    result = LCA_DAG.find_common_ancestors([[1, 2, 3]], [[0, 3, 6]])
     assert result == [3]
-    result = LCA_DAG.find_common_ancestors([1, 2, 3, 6], [0, 3, 6])
+    result = LCA_DAG.find_common_ancestors([[1, 2, 3, 6]], [[0, 3, 6]])
     assert result == [3, 6]
-    result = LCA_DAG.find_common_ancestors([1, 2, 4], [0, 3, 6])
-    assert result == None
+    result = LCA_DAG.find_common_ancestors([[1, 2, 4]], [[0, 3, 6]])
+    assert result == []
+
+def test_lca():
+    result = LCA_DAG.LCA(LCA_DAG.testDAG, 4, 6, 9)
+    assert result == 5
