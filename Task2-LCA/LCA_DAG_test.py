@@ -23,11 +23,11 @@ def test_shortest_path():
     result = LCA_DAG.shortest_path(LCA_DAG.testDAG, 4, 8)
     assert list(result) == [4, 8]
 
-# def test_greatest_depth():
-#     result = LCA_DAG.greatest_depth(LCA_DAG.testDAG, 1, 9)
-#     assert result == 3
-#     result = LCA_DAG.greatest_depth(LCA_DAG.testDAG, 4, 8)
-#     assert result == 4
+def test_greatest_depth():
+    result = LCA_DAG.greatest_depth(LCA_DAG.testDAG, 1, 9)
+    assert result == 3
+    result = LCA_DAG.greatest_depth(LCA_DAG.testDAG, 4, 8)
+    assert result == 4
 
 # check common ancestors works
 def test_common_ancestors():
