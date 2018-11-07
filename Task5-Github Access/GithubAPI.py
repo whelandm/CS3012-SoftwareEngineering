@@ -23,6 +23,13 @@ def findLanguage(l, g, u):
             count = count + 1
     return count
 
+#takes array of languages and user, returns barchart comparing number of repos with languages
+def compareLanguages(languages, g, u):
+    data = []
+    for language in languages:
+        data.append(findLanguage(language, g, u))
+    displayBar(data, languages, "Language Comparison")
+
 #function to display data as pie chart
 def displayPie(data, labels):
     plt.figure(figsize=(20,20))
