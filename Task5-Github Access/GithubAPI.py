@@ -15,6 +15,14 @@ def stargazers(g, u):
             count.append(current)
     return labels, count
 
+#search repos for language (l), return count
+def findLanguage(l, g, u):
+    count = 0
+    for repo in g.get_user(u).get_repos():
+        if repo.language == l:
+            count = count + 1
+    return count
+
 #function to display data as pie chart
 def displayPie(data, labels):
     plt.figure(figsize=(20,20))
